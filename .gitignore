@@ -1,0 +1,6 @@
+tmp
+*.log
+*.pyc
+.DS_Store
+.idea
+.vscode
