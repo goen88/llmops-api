@@ -46,7 +46,6 @@ def validation_error_json(errors: dict = None):
 def message(code: HttpCode, msg: str):
     '''基础消息响应,固定消息提示，数据为固定为空字典'''
     return json(Response(code=code, message=msg, data={}))
-goen880515
 
 def success_message(msg: str):
     '''成功消息响应,固定消息提示，数据为固定为空字典'''

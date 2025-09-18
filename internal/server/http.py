@@ -26,6 +26,7 @@ class Http(Flask):
     ):
         super().__init__(*args, **kwargs)
 
+
         # 导入配置文件
         self.config.from_object(conf)
 
