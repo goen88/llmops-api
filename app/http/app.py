@@ -21,16 +21,6 @@ app = Http(
     router=injector.get(Router),
 )
 
-# 解决跨域
-from flask_cors import CORS
-
-cors_config = {
-    "origins": "*",
-    "methods": ["GET", "POST", "PUT", "DELETE","OPTIONS"],
-    "allow_headers": ["Content-Type", "Authorization"],
-    "supports_credentials": True  # 添加这个配置
-}
-CORS(app, **cors_config)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5001, debug=True)

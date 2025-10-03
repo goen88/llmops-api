@@ -24,7 +24,7 @@ class Router:
         # 2、添加路由
         bp.add_url_rule('/ping',view_func=self.app_handler.ping)
         bp.add_url_rule('/app/completion',methods=['POST'],view_func=self.app_handler.completion)
-        bp.add_url_rule('/app/langchain_completion',methods=['POST'],view_func=self.app_handler.langchain_completion)
+        bp.add_url_rule('/app/<uuid:id>/langchain_completion',methods=['POST'],view_func=self.app_handler.langchain_completion)
         bp.add_url_rule('/app/create',methods=['POST'],view_func=self.app_handler.create_app)
         bp.add_url_rule('/app/<uuid:id>',methods=['GET'],view_func=self.app_handler.get_app)
         bp.add_url_rule('/app/<uuid:id>',methods=['POST'],view_func=self.app_handler.update_app)

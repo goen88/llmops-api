@@ -90,7 +90,7 @@ class AppHandler:
         content = completion.choices[0].message.content
         return success_json({'content':content})
 
-    def langchain_completion(self):
+    def langchain_completion(self,id:uuid.UUID):
         '''
         langchain completion
         :return:

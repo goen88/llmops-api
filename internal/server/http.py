@@ -1,6 +1,7 @@
 import os
 
 from flask import Flask
+from flask_cors import CORS
 from flask_migrate import Migrate
 
 from internal.exception import CustomException
@@ -43,8 +44,30 @@ class Http(Flask):
         # 初始化数据库迁移
         migrate.init_app(self, db,directory='internal/migration')
 
+        # 解决跨域问题
+        #全局解决
+        # cors_config = {
+        #     "origins": "*",
+        #     "methods": ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+        #     "allow_headers": ["Content-Type", "Authorization"],
+        #     "supports_credentials": True  # 添加这个配置
+        # }
+        # CORS(self, **cors_config)
+
+        CORS(self,resources={
+            r'/*':{
+                'origins': '*',
+                'supports_credentials': True,
+                'methods': ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+                'allow_headers': ['Content-Type', 'Authorization'],
+            }
+        })
+
         # 注册路由
         router.register_router(self)
+
+
+
 
 
     def _register_error_handler(self, error:Exception):

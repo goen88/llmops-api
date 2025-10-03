@@ -103,6 +103,7 @@ pip install flask-migrate
   "data": {
     "pagenator": {
       "page_size": "10", // 每页大小
+      "total_page" 10, //总页数
       "current_page": "1", // 当前页码
       "total_record": "100", // 总记录数
     },
